@@ -1,0 +1,14 @@
+{
+  "module": "commonjs",
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.12",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.13",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "neo4j-driver": "^5.3.0"
+  }
+}

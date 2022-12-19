@@ -1,0 +1,17 @@
+<div>
+  <form style="margin: 24px;" [formGroup]="genreForm" (ngSubmit)="onSubmit()">
+
+    <h1>Add new genre</h1>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Genre name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="genreFormName!.invalid">Genre name cannot be empty!</mat-error>
+      </mat-form-field>
+    </p>
+
+    <button mat-button type="submit" style="margin-left: 20px;" [disabled]="!this.genreForm.valid">Add</button>
+
+  </form>
+</div>

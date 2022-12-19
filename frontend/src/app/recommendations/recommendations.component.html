@@ -1,0 +1,28 @@
+<div class="centered">
+  <div class="albums-List">
+
+    <ng-template ngFor let-album [ngForOf]="recommendedAlbums" let-i="index">
+      <mat-card class="card">
+        <mat-card-content class="card-content">
+          <img mat-card-image class="card-image" src={{album.imageUrl}} alt="Album cover">
+          <div class="card-right-content">
+            <p style="font-size: 32px; margin-bottom: 8px; margin-top: 0px">{{album.name}}</p>
+            <p style="font-size: 24px; margin-top: 0px">{{album.artist}}, {{album.year}}</p>
+            <p style="margin-bottom: 8px;">{{album.length}}, {{album.numTracks}} tracks</p>
+            <p style="margin-top: 0px;">Genres:
+              <span *ngFor="let genre of album.genres | slice:0:album.genres.length-1">
+                {{genre}},
+              </span>
+              {{album.genres[album.genres.length-1]}}
+            </p>
+            <p style="margin-top: 0px; margin-bottom: 0px;">
+              Recommendation score: {{album.score | number: '1.0-1'}}
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+
+
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="centered">
+  <div class="albums-List">
+
+    <ng-template ngFor let-album [ngForOf]="albums" let-i="index">
+      <mat-card class="card">
+        <mat-card-content class="card-content">
+          <img mat-card-image class="card-image" src={{album.imageUrl}} alt="Album cover">
+          <div class="card-right-content">
+            <p style="font-size: 32px; margin-bottom: 8px; margin-top: 0px">{{album.name}}</p>
+            <p style="font-size: 24px; margin-top: 0px">{{album.artist}}, {{album.year}}</p>
+            <p style="margin-bottom: 8px;">{{album.length}}, {{album.numTracks}} tracks</p>
+            <p style="margin-top: 0px;">Genres:
+              <span *ngFor="let genre of album.genres | slice:0:album.genres.length-1">
+                {{genre}},
+              </span>
+              {{album.genres[album.genres.length-1]}}
+            </p>
+            <p style="margin-bottom: 8px;">Average user rating: {{album.averageRating | number: '1.0-1'}}</p>
+            <p style="margin-top: 0px; margin-bottom: 0px;">
+              <span *ngIf="album.userRated">
+                Your rating: {{album.userRating}}
+                <button mat-button style="margin-left: 8px" (click)="changeRating(album.id)">
+                  Change
+                </button>
+              </span>
+              <span *ngIf="!album.userRated">
+                  <mat-form-field class="user-rating">
+                    <mat-label>Your rating</mat-label>
+                    <input matInput type="number" min="1" max="5" [(ngModel)]="album.tempUserRating">
+                  </mat-form-field>
+                  <button mat-button style="margin-left: 8px; margin-bottom: 16px;" [disabled]="!album.tempUserRating" (click)="rateAlbum(album.id)">
+                    Rate
+                  </button>
+              </span>
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+
+
+    <button mat-flat-button color="primary" style="margin-left: 24px;  margin-top: 24px;" (click)="createAlbum()">Add new album</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.genres-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered {
+  margin-top: 64px;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

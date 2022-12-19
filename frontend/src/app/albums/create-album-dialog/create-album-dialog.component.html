@@ -1,0 +1,73 @@
+<div>
+  <form style="margin: 24px;" [formGroup]="albumForm" (ngSubmit)="onSubmit()">
+
+    <h1>Add new album</h1>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Artist</mat-label>
+        <mat-select formControlName="artist">
+          <mat-option *ngFor="let artist of data.artists" [value]="artist">{{artist.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Genres</mat-label>
+        <mat-select formControlName="genres" multiple>
+          <mat-option *ngFor="let genre of data.genres" [value]="genre">{{genre.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year" type="number" min="1948" max="2022">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Number of tracks</mat-label>
+        <input matInput formControlName="numTracks" type="number" min="1" max="99">
+      </mat-form-field>
+    </p>
+
+    <p style="margin-bottom: 0px;">Album length</p>
+    <p style="margin-top: 0px;">
+      <mat-form-field style="width: 80px;">
+        <mat-label>h</mat-label>
+        <input matInput formControlName="hours" type="number" min="0" max="23">
+      </mat-form-field>
+
+      <mat-form-field style="width: 80px;">
+        <mat-label>m</mat-label>
+        <input matInput formControlName="minutes" type="number" min="0" max="59">
+      </mat-form-field>
+
+      <mat-form-field style="width: 80px;">
+        <mat-label>s</mat-label>
+        <input matInput formControlName="seconds" type="number" min="0" max="59">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Image URL</mat-label>
+        <input matInput formControlName="imageUrl">
+      </mat-form-field>
+    </p>
+
+    <button mat-button type="submit" style="margin-left: 24px;" [disabled]="!this.albumForm.valid">Add</button>
+
+  </form>
+</div>

@@ -1,0 +1,40 @@
+.albums-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered {
+  margin-top: 64px;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border-radius: 4px;
+  max-width: 900px;
+  max-height: 6000px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.card-image {
+  margin: 0;
+  height: 300px;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-right-content {
+  display: flex;
+  justify-content: center;
+  flex: auto;
+  margin-left: 32px;
+  flex-direction: column;
+  padding: 8px;
+}
+
