@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>{{ title }}</h1>
+
+    <div *ngIf="(auth.isLoggedIn$() | async)" style="margin-left: 64px;">
+      <a mat-button style="margin-left: 32px" [routerLink]="'/albums'">
+        Albums
+      </a>
+
+      <a mat-button style="margin-left: 8px; font-size: 16px;" [routerLink]="'/genres'">
+        Genres
+      </a>
+
+      <a mat-button style="margin-left: 8px; font-size: 16px;" [routerLink]="'/artists'">
+        Artists
+      </a>
+
+      <a mat-button style="margin-left: 8px; font-size: 16px;" [routerLink]="'/recommendations'">
+        Recommendations
+      </a>
+    </div>
+    
+    <span class="spacer"></span>
+
+    <button mat-button (click)="onLogout()" *ngIf="(auth.isLoggedIn$() | async)">
+      sign out
+    </button>
+
+    <button mat-button [routerLink]="'/login'" *ngIf="!(auth.isLoggedIn$() | async)">
+      sign in
+    </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>

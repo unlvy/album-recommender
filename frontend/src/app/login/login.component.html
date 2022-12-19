@@ -1,0 +1,66 @@
+<div class="centered" *ngIf="isLogin"> 
+<form class="form" [formGroup]="loginForm" 
+  (ngSubmit)="onSubmitLogin()"
+  method="POST">
+
+  <h1>Sign in</h1>
+
+  <p>Not an user? 
+    <a mat-button (click)="onChangeForm()">Register</a>
+  </p>
+
+  <p>
+    <mat-form-field class="input-field">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+      <mat-error *ngIf="loginUsername!.invalid">Username cannot be empty!</mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field class="input-field">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="loginPassword!.invalid">Password cannot be empty!</mat-error>
+    </mat-form-field>
+  </p>
+
+  <button mat-flat-button color="primary" type="submit" 
+    style="margin-left: 20px;" [disabled]="!this.loginForm.valid">Sign in</button>
+
+</form>
+</div>
+
+<div class="centered" *ngIf="!isLogin"> 
+  <form class="form" [formGroup]="registerForm" 
+    (ngSubmit)="onSubmitRegister()"
+    method="POST">
+  
+    <h1>Register</h1>
+
+    <p>Already an user? 
+      <a mat-button (click)="onChangeForm()">Sign in</a>
+    </p>
+  
+    <p>
+      <mat-form-field class="input-field">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+        <mat-error *ngIf="registerUsername!.invalid">Username cannot be empty!</mat-error>
+      </mat-form-field>
+    </p>
+  
+    <p>
+      <mat-form-field class="input-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+        <mat-error *ngIf="registerPassword!.invalid">Password cannot be empty!</mat-error>
+      </mat-form-field>
+    </p>
+  
+    <button mat-flat-button color="primary" type="submit" 
+      style="margin-left: 20px;" [disabled]="!this.registerForm.valid">Register</button>
+  
+  </form>
+  </div>
+  
