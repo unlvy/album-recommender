@@ -7,10 +7,10 @@ import { GenresController } from './controllers/genres-controller';
 import { ArtistsController } from './controllers/artists-controller';
 import { RecommendedController } from './controllers/recommended-manager';
 
-const port = ':)';
-const dbURI = ':)';
-const dbUser = ':)';
-const dbPassword = ':)';
+const port = process.env.PORT;
+const dbURI = process.env.DB_URI;
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
 
 const dbManager = new DatabaseManager(dbURI, dbUser, dbPassword);
 const authController = new AuthController(dbManager);
