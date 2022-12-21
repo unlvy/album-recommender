@@ -1,4 +1,4 @@
-const backendUrl = ':)';
+const backendUrl = 'https://album-recommender-backend.onrender.com/';
 
 export const environment = {
   loginUrl: `${backendUrl}/auth/login`,
